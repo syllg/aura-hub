@@ -1,0 +1,62 @@
+services:
+  api:
+    build:
+      context: .
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    ports:
+      - "127.0.0.1:8002:8000"
+    volumes:
+      - aura_data:/app/data
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live', timeout=3)"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  qdrant:
+    image: qdrant/qdrant:v1.12.1
+    ports:
+      - "127.0.0.1:6335:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test:
+        - CMD
+        - bash
+        - -c
+        - "exec 3<>/dev/tcp/127.0.0.1/6333"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8002
+    environment:
+      API_INTERNAL_URL: http://api:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  aura_data:
+  qdrant_data:

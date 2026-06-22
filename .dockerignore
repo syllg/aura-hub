@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Frontend source & build artifacts (tidak diperlukan oleh backend image)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/*.tsbuildinfo
+
+# Data & runtime
+data/*.db
+data/*.db-*
+data/qdrant_local/
+*.log
+logs/
+*.pid
+
+# Secrets & config lokal
+.env
+.env.*
+!.env.example
+
+# Docs & misc
+DOCS/
+README.md
+Makefile
