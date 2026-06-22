@@ -758,9 +758,9 @@ Bagian ini berisi fitur yang tidak diwajibkan oleh `Instructions.md`. Seluruh re
 - Dashboard analytics untuk melihat metric, daily revenue, tren mingguan, dan anomali.
 - Navigasi terpadu antara chat dan analytics.
 
-<img width="1906" height="895" alt="demo_1-1" src="https://github.com/user-attachments/assets/5255c908-4e1e-4723-8bf4-a94fe0b712a8" />
+<img width="1906" height="895" alt="demo_1-1" src="https://github.com/user-attachments/assets/d0f057af-810a-45dd-bc8c-898d1fa17eda" />
 
-<img width="1911" height="906" alt="demo_3" src="https://github.com/user-attachments/assets/90d3df1d-4dfa-4495-a07a-24287b56875f" />
+<img width="1911" height="906" alt="Screenshot 2026-06-21 231725" src="https://github.com/user-attachments/assets/9462de2b-2741-4583-aed7-81d97fbcd54e" />
 
 ### 2. AuraHub Assistant
 
